@@ -14,9 +14,11 @@ export default function Home() {
 
   return (
     <div className={styles.wrapper}>
-      <header>
+      <div className={styles.header}>
         <h1>
-          Hike<span>gram</span>
+          <a href="#">
+            Hike<span>gram</span>
+          </a>
         </h1>
         <nav ref={nav}>
           <ul>
@@ -69,7 +71,7 @@ export default function Home() {
             fill="black"
           />
         </svg>
-      </header>
+      </div>
 
       <section className={styles.hero}>
         <div className="content">
