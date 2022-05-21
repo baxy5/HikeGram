@@ -1,4 +1,4 @@
-.wrapper {
+.container {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(../public/bg.jpg);
@@ -128,6 +128,37 @@
       width: 700px;
     }
   }
+
+  .header {
+    svg {
+      display: none;
+    }
+
+    nav {
+      display: block;
+      position: unset;
+      transform: translateX(0%);
+      width: auto;
+      height: auto;
+      background: none;
+
+      .close {
+        display: none;
+      }
+
+      ul {
+        display: flex;
+        margin: 0;
+
+        a {
+          &:hover {
+            background: none;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 1080px) {
@@ -145,5 +176,12 @@
     p {
       font-size: 10em;
     }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
   }
 }
