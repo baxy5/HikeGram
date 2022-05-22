@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import styles from "../styles/Home.module.scss";
 
-function home() {
+function Home() {
   return (
     <div className={styles.home}>
       <Navbar />
@@ -10,4 +10,4 @@ function home() {
   );
 }
 
-export default home;
+export default Home;

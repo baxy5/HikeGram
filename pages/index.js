@@ -30,7 +30,7 @@ export default function Home() {
             <nav ref={nav}>
               <ul>
                 <li>
-                  <Link href="/home">
+                  <Link href="/Home">
                     <a>Home</a>
                   </Link>
                 </li>

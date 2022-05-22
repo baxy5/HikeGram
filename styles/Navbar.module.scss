@@ -66,3 +66,51 @@
     cursor: pointer;
   }
 }
+
+@media only screen and (min-width: 1024px) {
+  .navbar {
+    svg {
+      display: none;
+    }
+  }
+
+  .nav {
+    position: unset;
+    transform: translateX(0%);
+    background: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+
+      svg {
+        display: none;
+      }
+
+      a {
+        &:hover {
+          background: none;
+          text-decoration: underline;
+        }
+      }
+
+      .sign_up {
+        background: #000;
+        border-radius: 5px;
+        color: #8b8b8c;
+        padding: 0.5em 1em;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.562);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

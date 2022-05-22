@@ -42,7 +42,9 @@ const Navbar = () => {
             <a href="#">Login</a>
           </li>
           <li>
-            <a href="#">Sign up</a>
+            <a href="#" className={styles.sign_up}>
+              Sign up
+            </a>
           </li>
         </ul>
 
