@@ -6,12 +6,20 @@ const Navbar = () => {
   let menu = useRef("");
 
   const openMenu = () => {
-    menu.current.classList.add("open-menu");
+    if (menu.current.style.transform == "translate(100%)") {
+      menu.current.style.transform = "translate(0%)";
+    } else {
+      menu.current.style.transform = "translate(100%)";
+    }
   };
+
+  /* const closeMenu = () => {
+    menu.current.style.transfrom = "translate(100%)";
+  }; */
 
   return (
     <div className={styles.navbar}>
-      <Link href="/home">
+      <Link href="/Home">
         <a className={styles.logo}>
           Hike<span>gram</span>
         </a>
@@ -48,7 +56,12 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          onClick={openMenu}
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M14 3.5C19.799 3.5 24.5 8.20101 24.5 14C24.5 19.799 19.799 24.5 14 24.5C8.20101 24.5 3.5 19.799 3.5 14C3.5 8.20101 8.20101 3.5 14 3.5Z"
             stroke="white"
