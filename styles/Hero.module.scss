@@ -1,0 +1,44 @@
+.hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 1em 1em;
+  width: 100%;
+
+  .hero_content {
+    margin-top: 13em;
+
+    h1 {
+      color: white;
+      font-size: 6em;
+
+      span {
+        color: black;
+      }
+    }
+
+    p {
+      color: white;
+      font-size: 1.3em;
+      max-width: 700px;
+      line-height: 1.5em;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .hero {
+    .hero_content {
+      margin-top: 10em;
+
+      h1 {
+        font-size: 10em;
+      }
+
+      p {
+        font-size: 2em;
+      }
+    }
+  }
+}

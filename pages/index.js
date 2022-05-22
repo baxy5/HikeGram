@@ -52,14 +52,14 @@ export default function Home() {
                 <path
                   d="M14 3.5C19.799 3.5 24.5 8.20101 24.5 14C24.5 19.799 19.799 24.5 14 24.5C8.20101 24.5 3.5 19.799 3.5 14C3.5 8.20101 8.20101 3.5 14 3.5Z"
                   stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 />
                 <path
                   d="M14.0002 14L18.6668 9.33334M14.0002 14L18.6668 18.6667L14.0002 14ZM14.0002 14L9.3335 9.33334L14.0002 14ZM14.0002 14L9.3335 18.6667L14.0002 14Z"
                   stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 />
               </svg>
             </nav>

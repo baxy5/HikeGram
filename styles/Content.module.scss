@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Biryani:wght@200&display=swap");
+
+.container {
+  margin-top: 10em;
+  padding: 0em 1em;
+  font-family: "Biryani", sans-serif;
+}
+
+.content {
+  margin-top: 5em;
+  display: flex;
+  justify-content: space-around;
+
+  h1 {
+    font-family: "Bebas Neue", cursive;
+    position: relative;
+    padding-bottom: 0.2em;
+    font-size: 2.7em;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 4em;
+      height: 3px;
+      background: #2f3926;
+    }
+  }
+
+  p {
+    margin-top: 2.3em;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  button {
+    outline: none;
+    background: #6e5b30;
+    margin-top: 1.5em;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: "Bebas Neue", cursive;
+    cursor: pointer;
+    font-size: 1em;
+
+    &:hover {
+      background: #6e5b30c0;
+    }
+  }
+}
+
+.image {
+  border-radius: 65% 35% 21% 79% / 67% 44% 56% 33%;
+  animation: blob 1s alternate-reverse infinite;
+}
+
+@keyframes blob {
+  from {
+    border-radius: 65% 35% 21% 79% / 67% 44% 56% 33%;
+  }
+  to {
+    border-radius: 76% 24% 60% 40% / 34% 56% 44% 66%;
+  }
+}
