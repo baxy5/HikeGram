@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.scss";
 import Navbar from "../components/Navbar.jsx";
 import Hero from "../components/Hero.jsx";
 import Content from "../components/Content.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Home() {
   return (
@@ -13,9 +14,8 @@ function Home() {
           <Hero />
         </div>
       </div>
-      <div className={styles.wrapper}>
-        <Content />
-      </div>
+      <Content />
+      <Footer />
     </>
   );
 }
