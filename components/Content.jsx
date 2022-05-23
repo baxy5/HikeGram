@@ -21,8 +21,8 @@ const Content = () => {
         </div>
       </div>
 
-      <div className={styles.features}>
-        <div className={styles.more_info}>
+      <div className={styles.more_info}>
+        <div className={styles.features}>
           <Image
             src={WildHiker1}
             className={styles.img}
@@ -37,6 +37,8 @@ const Content = () => {
             <p>Show others the beautiful place you were.</p>
             <button>Share</button>
           </div>
+        </div>
+        <div className={`${styles.features} ${styles.right}`}>
           <Image
             src={WildHiker2}
             className={styles.img}

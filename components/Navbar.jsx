@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      <Link href="/Home">
+      <Link href="/">
         <a className={styles.logo}>
           Hike<span>gram</span>
         </a>
