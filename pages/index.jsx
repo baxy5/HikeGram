@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.scss";
 import Navbar from "../components/Navbar.jsx";
 import Hero from "../components/Hero.jsx";
 import Content from "../components/Content.jsx";
-import Footer from "../components/Footer.js";
+import Footer from "../components/Footer.jsx";
 
 function Home() {
   return (
