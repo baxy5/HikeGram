@@ -35,10 +35,14 @@ const Navbar = () => {
       <div className={styles.nav} ref={menu}>
         <ul>
           <li>
-            <a href="#">Home</a>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
           </li>
           <li>
-            <a href="#">Gallery</a>
+            <Link href="/">
+              <a>Feed</a>
+            </Link>
           </li>
           <li>
             <a href="#">Community</a>
@@ -47,9 +51,9 @@ const Navbar = () => {
             <a href="#">Login</a>
           </li>
           <li>
-            <a href="#" className={styles.sign_up}>
-              Sign up
-            </a>
+            <Link href="/register">
+              <a className={styles.sign_up}>Sign up</a>
+            </Link>
           </li>
         </ul>
 

@@ -1,0 +1,80 @@
+.register {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../public/login-register-bg.jpg);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: 55%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.box {
+  display: block;
+  background-color: #8c8c8d69;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 10px #8c8c8d69;
+  padding: 1em 4em;
+  color: #262222;
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  label {
+    font-size: 1.3em;
+    display: block;
+    margin: 0.5em 0em;
+  }
+
+  input {
+    height: 2em;
+    outline: none;
+    border: 1.3px solid #262222;
+    background: none;
+    border-radius: 2px;
+    padding: 0em 1em;
+
+    &:focus {
+      border: 1.3px solid #000;
+    }
+  }
+
+  form {
+    display: block;
+    justify-content: space-around;
+
+    div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  button {
+    display: block;
+    margin: 2em 0em;
+    outline: none;
+    border: none;
+    background: #262222;
+    color: #686466;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      background: #110f0f;
+    }
+  }
+}
