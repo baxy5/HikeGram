@@ -2,18 +2,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import styles from "../styles/Navbar.module.scss";
 
-const Navbar = () => {
-  let menu = useRef("");
-
-  // Need refactor:
-  const openMenu = () => {
-    if (menu.current.style.transform == "translate(100%)") {
-      menu.current.style.transform = "translate(0%)";
-    } else {
-      menu.current.style.transform = "translate(100%)";
-    }
-  };
-
+const Navbar = ({ isOpen, setMenu }) => {
   return (
     <div className={styles.navbar}>
       <Link href="/">
@@ -22,7 +11,9 @@ const Navbar = () => {
         </a>
       </Link>
       <svg
-        onClick={openMenu}
+        onClick={() => {
+          isOpen ? setMenu(false) : setMenu(true);
+        }}
         viewBox="0 0 27 27"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +23,7 @@ const Navbar = () => {
           fill="black"
         />
       </svg>
-      <div className={styles.nav} ref={menu}>
+      <div className={`${styles.nav} ${isOpen ? "open_menu" : ""}`}>
         <ul>
           <li>
             <Link href="/">
@@ -58,7 +49,9 @@ const Navbar = () => {
         </ul>
 
         <svg
-          onClick={openMenu}
+          onClick={() => {
+            isOpen ? setMenu(false) : setMenu(true);
+          }}
           viewBox="0 0 28 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

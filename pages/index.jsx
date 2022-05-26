@@ -5,8 +5,11 @@ import Navbar from "../components/Navbar.jsx";
 import Hero from "../components/Hero.jsx";
 import Content from "../components/Content.jsx";
 import Footer from "../components/Footer.jsx";
+import { useState } from "react";
 
 function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <>
       <Head>
@@ -14,7 +17,7 @@ function Home() {
       </Head>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-          <Navbar />
+          <Navbar isOpen={isMenuOpen} setMenu={setIsMenuOpen} />
           <Hero />
         </div>
       </div>
