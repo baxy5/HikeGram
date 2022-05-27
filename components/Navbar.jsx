@@ -23,7 +23,7 @@ const Navbar = ({ isOpen, setMenu }) => {
           fill="black"
         />
       </svg>
-      <div className={`${styles.nav} ${isOpen ? "open_menu" : ""}`}>
+      <div className={`${styles.nav} ${isOpen ? styles.open_menu : ""}`}>
         <ul>
           <li>
             <Link href="/">
