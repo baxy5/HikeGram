@@ -1,35 +1,32 @@
-const { MongoClient } = require("mongodb");
-
-const url = process.env.MONGO_URL;
+import { connect } from "../../utils/database";
 
 export default function handler(req, res) {
-  if (req.method === "POST") {
-    const data = req.body;
-    res.status(201).json(data);
 
-    MongoClient.connect(url, function (err, db) {
-      if (err) throw err;
+  try {
+    const {db} = await connect()
+    const {
+      userData: { email, password },
+    } = req.body;
 
-      console.log("Successful connection!");
+    const result = await db.collection("users").insertOne({
+      data: [email,password],
+      createdAt: new Data()
+    })
 
-      let userData = {
-        email: data.email,
-        password: data.password,
-      };
+  res.status(201).json(result);
 
-      let dbo = db.db("Hikegram");
 
-      dbo.collection("users").insertOne(userData, (err, res) => {
-        if (err) throw err;
-
-        console.log("User added.");
-        db.close();
-      });
-    });
+  } catch (e) {
+    res.status(500);
+    res.json({ error: "Unable to insert..." });
   }
 
-  // getting data ✅
-  // connect to mongodb atlas ✅
-  // encrypt password ❌
-  // store user in collection ✅
+  /* if (req.method === "POST") {
+    
+ } */
 }
+
+// getting data ✅
+// connect to mongodb atlas ✅
+// encrypt password ❌
+// store user in collection ✅

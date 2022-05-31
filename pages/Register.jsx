@@ -30,7 +30,7 @@ const Register = () => {
         <div className={styles.box}>
           <h1>Sign up</h1>
           {/* Action: it defines where to send the data also after submitting, this redirect to the API url in this case */}
-          <form method="post" action="/api/register" onSubmit={sendData}>
+          <form method="post" onSubmit={sendData}>
             <label htmlFor="email">Email</label>
             <input
               type="email"
