@@ -1,6 +1,6 @@
 const { MongoClient } = require("mongodb");
-const url =
-  "mongodb+srv://bakszy:futball7@cluster0.ov4ny.mongodb.net/?retryWrites=true&w=majority";
+
+const url = process.env.MONGO_URL;
 
 export default function handler(req, res) {
   if (req.method === "POST") {
