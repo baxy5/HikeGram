@@ -1,23 +1,35 @@
 const { MongoClient } = require("mongodb");
-
 const url =
   "mongodb+srv://bakszy:futball7@cluster0.ov4ny.mongodb.net/?retryWrites=true&w=majority";
-
-MongoClient.connect(url, function (err, db) {
-  if (err) throw err;
-
-  console.log("Successful connection!");
-  db.close();
-});
 
 export default function handler(req, res) {
   if (req.method === "POST") {
     const data = req.body;
     res.status(201).json(data);
+
+    MongoClient.connect(url, function (err, db) {
+      if (err) throw err;
+
+      console.log("Successful connection!");
+
+      let userData = {
+        email: data.email,
+        password: data.password,
+      };
+
+      let dbo = db.db("Hikegram");
+
+      dbo.collection("users").insertOne(userData, (err, res) => {
+        if (err) throw err;
+
+        console.log("User added.");
+        db.close();
+      });
+    });
   }
 
   // getting data ✅
-  // connect to mongodb atlas ❌
+  // connect to mongodb atlas ✅
   // encrypt password ❌
-  // store user in collection ❌
+  // store user in collection ✅
 }
