@@ -1,5 +1,11 @@
 export default function handler(req, res) {
-  const data = req.body;
+  if (req.method === "POST") {
+    const data = req.body;
+    res.status(201).json(data);
+  }
 
-  console.log(data);
+  // getting data ✅
+  // connect to mongodb atlas ❌
+  // encrypt password ❌
+  // store user in collection ❌
 }

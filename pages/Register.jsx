@@ -1,30 +1,20 @@
 import Link from "next/link";
-import { useState } from "react";
 import logo from "../styles/Navbar.module.scss";
 import styles from "../styles/Register.module.scss";
-import axios from "axios";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const [userData, setUserData] = useState(null);
-
-  const getUserData = async () => {
-    setUserData({ email: email, password: password });
-
-    try {
-      let response = await axios
-        .post("/api/register", userData)
-        .then((res) => console.log(res));
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  // get sign up data
-  // store data in state
-  // useEffect send data to api
+  const sendData = async () => {
+    const response = await fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify({ data }),
+      header: {
+        "Content-Type": "application/json",
+      }
+    })
+    const data = await response.json()
+    console.log(data)
+  }
 
   return (
     <div className={styles.register}>
@@ -39,11 +29,10 @@ const Register = () => {
       <div className={styles.container}>
         <div className={styles.box}>
           <h1>Sign up</h1>
-          <form method="post" onSubmit={getUserData}>
+          {/* Action: it defines where to send the data also after submitting, this redirect to the API url in this case */}
+          <form method="post" action="/api/register" onSubmit={sendData}>
             <label htmlFor="email">Email</label>
             <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               type="email"
               name="email"
               id="email"
@@ -51,8 +40,6 @@ const Register = () => {
             />
             <label htmlFor="password">Password</label>
             <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               type="password"
               name="password"
               id="password"
