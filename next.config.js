@@ -2,8 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    MONGO_URI:
-      "mongodb+srv://bakszy:bakszy@cluster0.ov4ny.mongodb.net/?retryWrites=true&w=majority",
+    MONGO_URL: process.env.MONGO_URL,
   },
 };
 
