@@ -3,7 +3,6 @@ const url = process.env.MONGO_URL;
 
 const client = new MongoClient(url, {
   useNewUrlParser: true,
-  useUnifiedTopolgy: true,
 });
 
 async function connect() {

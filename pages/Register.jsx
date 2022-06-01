@@ -4,10 +4,17 @@ import styles from "../styles/Register.module.scss";
 
 const Register = () => {
 
-  const sendData = async () => {
+  const sendData = async (e) => {
+    e.preventDefault()
+
     const response = await fetch("/api/register", {
       method: "POST",
-      body: JSON.stringify({ data }),
+      body: JSON.stringify({
+        data: {
+          email: e.target.email.value,
+          password: e.target.password.value
+        }
+      }),
       header: {
         "Content-Type": "application/json",
       }
