@@ -2,17 +2,13 @@ import { connect } from "../../utils/database";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const userData = req.body;
-    res.status(201).json(userData);
-    /* try {
+    try {
       // runs the "connect" function then return "db"
       const { db } = await connect();
-      const {
-        userData: { email, password },
-      } = req.body;
+      const { userEmail, userPassword } = JSON.parse(req.body);
 
       const result = await db.collection("users").insertOne({
-        data: [email, password],
+        userData: [userEmail, userPassword],
         createdAt: new Data(),
       });
 
@@ -20,7 +16,7 @@ export default async function handler(req, res) {
     } catch (e) {
       res.status(500);
       res.json({ error: "Unable to insert..." });
-    } */
+    }
   }
 }
 

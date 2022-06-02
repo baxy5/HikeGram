@@ -1,17 +1,16 @@
 import { MongoClient } from "mongodb";
-const url = process.env.MONGO_URL;
 
-const client = new MongoClient(url, {
+const client = new MongoClient(process.env.MONGO_URL, {
   useNewUrlParser: true,
 });
 
 async function connect() {
   if (!client.isConnected()) await client.connect();
-  const db = client.db("hikegram");
+  const db = client.db("Hikegram");
   return { db, client };
 }
 
-export default connect;
+export { connect };
 
 /* MongoClient.connect(url, function (err, db) {
   if (err) throw err;

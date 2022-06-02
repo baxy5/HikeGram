@@ -6,15 +6,14 @@ const Register = () => {
 
   const sendData = async (e) => {
     e.preventDefault()
+    const userData = {
+      email: e.target.email.value,
+      password: e.target.password.value
+    }
 
     const response = await fetch("/api/register", {
       method: "POST",
-      body: JSON.stringify({
-        data: {
-          email: e.target.email.value,
-          password: e.target.password.value
-        }
-      }),
+      body: JSON.stringify(userData),
       header: {
         "Content-Type": "application/json",
       }
