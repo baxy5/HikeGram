@@ -1,4 +1,4 @@
-import { connect } from "../../utils/database";
+import { connect } from "../../utils/database.js";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
