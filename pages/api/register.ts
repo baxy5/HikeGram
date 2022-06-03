@@ -1,6 +1,7 @@
-import { connect } from "../../utils/database.js";
+import { connect } from "../../utils/database";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
+export default async function (req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
       // runs the "connect" function then return "db"
@@ -9,7 +10,7 @@ export default async function handler(req, res) {
 
       const result = await db.collection("users").insertOne({
         userData: [userEmail, userPassword],
-        createdAt: new Data(),
+        createdAt: new Date(),
       });
 
       res.status(201).json(result);

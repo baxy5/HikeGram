@@ -10,7 +10,7 @@ async function connect() {
   return { db, client };
 }
 
-export default { connect };
+export { connect };
 
 /* MongoClient.connect(url, function (err, db) {
   if (err) throw err;
