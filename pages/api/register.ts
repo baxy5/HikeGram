@@ -1,6 +1,7 @@
 import { connect } from "../../utils/database";
 import { NextApiRequest, NextApiResponse } from "next";
 
+// typescript ref:
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     try {
