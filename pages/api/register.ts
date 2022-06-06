@@ -36,3 +36,4 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 // connect to mongodb atlas ✅
 // encrypt password ❌
 // store user in collection ✅
+/* const userData: { userEmail: string, userPassword: string } = req.body; */

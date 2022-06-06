@@ -1,26 +1,5 @@
 import { MongoClient } from "mongodb";
 
-/* const client = new MongoClient(process.env.MONGO_URL);
-
-async function connect() {
-
-  try {
-    client.connect()
-    const db = client.db("Hikegram")
-
-    return { db, client }
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-export { connect }; */
-
-/* if (!client.isConnected()) await client.connect();
-  const db = client.db("Hikegram");
-  return { db, client }; */
-
-
 const client = MongoClient.connect(process.env.MONGO_URL, function (err, db) {
   if (err) throw err;
 
@@ -39,3 +18,7 @@ const client = MongoClient.connect(process.env.MONGO_URL, function (err, db) {
 });
 
 export default client
+
+/* if (!client.isConnected()) await client.connect();
+  const db = client.db("Hikegram");
+  return { db, client }; */
