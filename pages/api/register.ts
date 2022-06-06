@@ -1,16 +1,26 @@
-import { connect } from "../../utils/database";
+/* import { connect } from "../../utils/database"; */
+const client = require("../../utils/database")
 import { NextApiRequest, NextApiResponse } from "next";
 
-// typescript ref:
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    try {
-      // runs the "connect" function then return "db"
+    /* const userData: { userEmail, userPassword } = req.body;
+    res.status(201).json(userData); */
+    const db = client.db("Hikegram");
+    const userData: { userEmail: string, userPassword: string } = req.body;
+
+    const result = await db.collection("users").insertOne({
+      userData,
+      createdAt: new Date(),
+    });
+
+    res.status(201).json(result);
+    /* try {
       const { db } = await connect();
-      const { userEmail, userPassword } = JSON.parse(req.body);
+      const userData: { userEmail: string, userPassword: string } = req.body;
 
       const result = await db.collection("users").insertOne({
-        userData: [userEmail, userPassword],
+        userData,
         createdAt: new Date(),
       });
 
@@ -18,7 +28,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     } catch (e) {
       res.status(500);
       res.json({ error: "Unable to insert..." });
-    }
+    } */
   }
 }
 
