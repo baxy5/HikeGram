@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { useRef } from "react";
 import styles from "../styles/Navbar.module.scss";
 
-const Navbar = ({ isOpen, setMenu }) => {
+interface Props {
+  isOpen: boolean;
+  setMenu: Function;
+}
+
+const Navbar = ({ isOpen, setMenu }: Props) => {
   return (
     <div className={styles.navbar}>
       <Link href="/">
