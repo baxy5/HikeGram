@@ -1,34 +1,25 @@
-/* import { connect } from "../../utils/database"; */
-const client = require("../../utils/database")
 import { NextApiRequest, NextApiResponse } from "next";
+import { MongoClient } from "mongodb";
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    /* const userData: { userEmail, userPassword } = req.body;
-    res.status(201).json(userData); */
-    const db = client.db("Hikegram");
+
     const userData: { userEmail: string, userPassword: string } = req.body;
 
-    const result = await db.collection("users").insertOne({
-      userData,
-      createdAt: new Date(),
-    });
+    MongoClient.connect(process.env.MONGO_URL, (err, client) => {
+      if (err) throw err
 
-    res.status(201).json(result);
-    /* try {
-      const { db } = await connect();
-      const userData: { userEmail: string, userPassword: string } = req.body;
+      console.log("Successful connection with Database.")
 
-      const result = await db.collection("users").insertOne({
+      const db = client.db("Hikegram")
+
+      const result = db.collection("users").insertOne({
         userData,
         createdAt: new Date(),
       });
 
       res.status(201).json(result);
-    } catch (e) {
-      res.status(500);
-      res.json({ error: "Unable to insert..." });
-    } */
+    })
   }
 }
 
@@ -36,4 +27,3 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 // connect to mongodb atlas ✅
 // encrypt password ❌
 // store user in collection ✅
-/* const userData: { userEmail: string, userPassword: string } = req.body; */
