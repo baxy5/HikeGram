@@ -9,8 +9,6 @@ const Register = () => {
   }
 
   const sendData = async (e) => {
-    e.preventDefault();
-
     const userData: User = {
       email: e.target.email.value,
       password: e.target.password.value,
@@ -48,8 +46,11 @@ const Register = () => {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" id="password" required />
             <div>
-              <button type="submit">Submit</button>
+              <button type="submit">Sign up</button>
             </div>
+            <Link href="/login">
+              <a className={styles.linking}>Do you have an account?</a>
+            </Link>
           </form>
         </div>
       </div>

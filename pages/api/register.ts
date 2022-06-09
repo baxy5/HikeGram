@@ -13,12 +13,13 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
       const db = client.db("Hikegram")
 
-      const result = db.collection("users").insertOne({
+      db.collection("users").insertOne({
         userData,
         createdAt: new Date(),
       });
 
-      res.status(201).json(result);
+      res.status(201).json({ "message": "User added" });
+      res.redirect("/")
     })
   }
 }
