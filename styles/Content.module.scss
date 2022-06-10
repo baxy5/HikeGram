@@ -87,6 +87,27 @@
   font-size: 1.4em;
 }
 
+@media only screen and (min-width: 1400px) {
+  .content {
+    h1 {
+      font-size: 4em;
+    }
+
+    p {
+      font-size: 1.6em;
+    }
+  }
+
+  .feature {
+    .title {
+      font-size: 2em;
+    }
+    .desc {
+      font-size: 1.4em;
+    }
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .feature {
     display: grid;
