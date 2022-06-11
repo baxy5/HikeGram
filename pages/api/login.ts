@@ -3,9 +3,9 @@ import { MongoClient } from "mongodb"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    const userData: {
-      userEmail: String,
-      userPassword: String
+    const data: {
+      email: String,
+      password: String
     } = req.body
 
     MongoClient.connect(process.env.MONGO_URL, (err, client) => {
@@ -15,15 +15,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       const db = client.db("Hikegram")
 
-      const query = { userData: userData.userEmail }
+      const query = { "userData.email": data.email }
 
-      db.collection("users").findOne(query, (err, res) => {
+      db.collection("users").find(query).toArray((err, res) => {
         if (err) throw err;
 
         console.log(res)
       })
-
-      // res.status(201).json({ "message": "Successful login." });
     })
   }
 }
