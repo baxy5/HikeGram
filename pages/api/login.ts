@@ -8,8 +8,6 @@ export default async function handler(request: NextApiRequest, response: NextApi
       password: String
     } = request.body
 
-    let loginSuccess: boolean = false;
-
     MongoClient.connect(process.env.MONGO_URL, (err, client) => {
       if (err) throw err;
 
@@ -24,10 +22,15 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
 
         if (res.length == 0) {
-          console.log("Unsuccessful login.")
-          loginSuccess = false
-        } else {
+          console.log("Account not found. Sign up!")
+          // fancier alert needed on client side -- no account error
+        } else if (res[0].userData.password != data.password) {
+          console.log("Password is wrong.")
+          // fancier alert needed on client side -- password error
+        }
+        else {
           console.log("Successful login.")
+          // redirect goes here
         }
       })
     })
