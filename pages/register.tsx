@@ -2,6 +2,7 @@ import Link from "next/link";
 import logo from "../styles/Navbar.module.scss";
 import styles from "../styles/Register.module.scss";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Register = () => {
   interface User {
@@ -9,12 +10,17 @@ const Register = () => {
     password: string;
   }
 
+  const router = useRouter();
+
   let [isLoading, setLoading] = useState(false);
 
   function loadingAnimation() {
     setTimeout(() => {
       setLoading(true);
     }, 200);
+    setTimeout(() => {
+      router.push("/");
+    }, 2000);
   }
 
   const sendData = async (e) => {
@@ -50,7 +56,7 @@ const Register = () => {
       <div className={styles.container}>
         {isLoading ? (
           <div className={styles.loading}>
-            <p>Signing in...</p>
+            <p>Signing up...</p>
           </div>
         ) : (
           <div className={styles.box}>

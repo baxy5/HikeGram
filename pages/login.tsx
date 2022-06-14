@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import styles from "../styles/Register.module.scss";
 import logo from "../styles/Navbar.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const Login = () => {
   interface User {
     email: String;
     password: String;
   }
+
+  const router = useRouter();
 
   let [isLoading, setLoading] = useState(false);
 
