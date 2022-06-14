@@ -12,7 +12,7 @@ const Register = () => {
   let [isLoading, setLoading] = useState(false);
 
   function loadingAnimation() {
-    setInterval(() => {
+    setTimeout(() => {
       setLoading(true);
     }, 200);
   }
