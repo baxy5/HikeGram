@@ -12,11 +12,9 @@ export const Login = () => {
   let [isLoading, setLoading] = useState(false);
 
   function loadingAnimation() {
-    setLoading(true);
     setInterval(() => {
-      setLoading(false);
-      console.log("set default");
-    }, 3000);
+      setLoading(true);
+    }, 200);
   }
 
   const userVerification = async (e) => {

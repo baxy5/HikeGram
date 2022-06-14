@@ -19,6 +19,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       });
 
       res.status(201).json({ "message": "User added" });
+      console.log("Account registered.")
     })
   }
 }
