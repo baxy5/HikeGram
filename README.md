@@ -1,3 +1,5 @@
+# NextJS learning project using NextJS for both server and client side. Storing data in NoSQL MongoDB. (user data, feed) Styling without Tailwind and Bootstrap to learn how to use Sass.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
