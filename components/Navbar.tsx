@@ -9,7 +9,7 @@ interface Props {
 const Navbar = ({ isOpen, setMenu }: Props) => {
   return (
     <div className={styles.navbar}>
-      <Link href="/">
+      <Link href="/" replace>
         <a className={styles.logo}>
           Hike<span>gram</span>
         </a>
@@ -30,23 +30,27 @@ const Navbar = ({ isOpen, setMenu }: Props) => {
       <div className={`${styles.nav} ${isOpen ? styles.open_menu : ""}`}>
         <ul>
           <li>
-            <Link href="/">
+            <Link href="/" replace>
               <a>Home</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/" replace>
               <a>Feed</a>
             </Link>
           </li>
           <li>
-            <a href="#">Community</a>
+            <Link href="/" replace>
+              <a href="#">Community</a>
+            </Link>
           </li>
           <li>
-            <a href="/login">Login</a>
+            <Link href="/login" replace>
+              <a>Login</a>
+            </Link>
           </li>
           <li>
-            <Link href="/register">
+            <Link href="/register" replace>
               <a className={styles.sign_up}>Sign up</a>
             </Link>
           </li>

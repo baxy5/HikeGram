@@ -30,6 +30,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
         }
         else {
           console.log("Successful login.")
+          response.status(200)
           // redirect goes here
         }
       })

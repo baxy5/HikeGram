@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Register.module.scss";
 import logo from "../styles/Navbar.module.scss";
 import Link from "next/link";
@@ -18,6 +18,9 @@ export const Login = () => {
     setTimeout(() => {
       setLoading(true);
     }, 200);
+    setTimeout(() => {
+      router.push("/");
+    }, 2000);
   }
 
   const userVerification = async (e) => {
@@ -35,10 +38,11 @@ export const Login = () => {
       },
       body: JSON.stringify(userData),
     });
-
-    const data = await response.json();
-    console.log(data);
   };
+
+  useEffect(() => {
+    router.prefetch("/");
+  });
 
   return (
     <div className={styles.register}>
