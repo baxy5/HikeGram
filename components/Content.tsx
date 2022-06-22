@@ -43,47 +43,8 @@ const Content = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className={styles.more_info}>
-        <div className={styles.features}>
-          <Image
-            src={WildHiker1}
-            className={styles.img}
-            width="100%"
-            height={50}
-            objectFit="cover"
-            layout="responsive"
-            quality={100}
-          />
-          <div className={styles.feature}>
-            <h1>Share your photo</h1>
-            <p>Show others the beautiful place you were.</p>
-            <button>Share</button>
-          </div>
-        </div>
-        <div className={`${styles.features} ${styles.right}`}>
-          <Image
-            src={WildHiker2}
-            className={styles.img}
-            width="100%"
-            height={50}
-            objectFit="cover"
-            layout="responsive"
-            quality={100}
-          />
-          <div className={styles.feature}>
-            <h1>Get to know others</h1>
-            <p>
-              Are you lone wolf and want to change that? Find friends, and go
-              have some fun together.
-            </p>
-            <button>Find</button>
-          </div>
-        </div>
-      </div> */}
-
       <div className={styles.under_cons}>
-        <h1>UNDER CONSTRUCTION</h1>
+        <h1>Join to this excellent community! </h1>
       </div>
     </div>
   );
