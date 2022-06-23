@@ -1,11 +1,14 @@
 import React from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
+import { useState } from "react";
+
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Content from "../components/Content";
 import Footer from "../components/Footer";
-import { useState } from "react";
+import LoadingScreen from "../components/LoadingScreen";
+
+import styles from "../styles/Home.module.scss";
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

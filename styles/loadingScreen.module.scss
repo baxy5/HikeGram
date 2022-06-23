@@ -1,0 +1,15 @@
+.container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #2f3926;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  z-index: 999;
+
+  p {
+    margin: 1em;
+  }
+}
