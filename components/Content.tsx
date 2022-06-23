@@ -22,6 +22,8 @@ const Content = () => {
         </div>
       </div>
 
+      {/* asdasdasdsadsadsadsadsadasdasd */}
+
       <div className={styles.more_info}>
         <div className={styles.feature}>
           <div className={styles.info}>
