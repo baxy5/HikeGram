@@ -1,5 +1,9 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
+
+import { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 import styles from "../styles/Content.module.scss";
 
 import FriendsImage from "../public/friends.jpg";
@@ -8,21 +12,51 @@ import WildHiker2 from "../public/wild-hiker2.jpg";
 import WildHiker1 from "../public/wild-hiker1.jpg";
 
 const Content = () => {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }, [control, inView]);
+
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <Image src={FriendsImage} className={styles.image} />
+      <motion.div
+        initial="hidden"
+        animate={control}
+        ref={ref}
+        variants={{
+          hidden: {
+            scale: 0.8,
+            opacity: 0,
+          },
+          visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              delay: 0.4,
+            },
+          },
+        }}
+      >
+        <div className={styles.wrapper}>
+          <Image src={FriendsImage} className={styles.image} />
 
-        <div className={styles.content}>
-          <div className={styles.text}>
-            <h1>Explore together</h1>
-            <p>Share your experiences with others.</p>
-            <p>Find friends.</p>
-            <p>Hike together.</p>
-            <button>Explore</button>
+          <div className={styles.content}>
+            <div className={styles.text}>
+              <h1>Explore together</h1>
+              <p>Share your experiences with others.</p>
+              <p>Find friends.</p>
+              <p>Hike together.</p>
+              <button>Explore</button>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className={styles.more_info}>
         <div className={styles.feature}>
@@ -34,6 +68,7 @@ const Content = () => {
           </div>
           <Image src={WildHiker3} placeholder="blur" />
         </div>
+
         <div className={styles.feature}>
           <Image src={WildHiker2} placeholder="blur" />
           <div className={styles.info}>
