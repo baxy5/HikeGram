@@ -1,5 +1,7 @@
-import styles from "../styles/Content.module.scss";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import styles from "../styles/Content.module.scss";
+
 import FriendsImage from "../public/friends.jpg";
 import WildHiker3 from "../public/wild-hiker3.jpg";
 import WildHiker2 from "../public/wild-hiker2.jpg";
@@ -21,8 +23,6 @@ const Content = () => {
           </div>
         </div>
       </div>
-
-      {/* asdasdasdsadsadsadsadsadasdasd */}
 
       <div className={styles.more_info}>
         <div className={styles.feature}>
