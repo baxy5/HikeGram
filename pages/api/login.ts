@@ -1,5 +1,21 @@
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextApiRequest, NextApiResponse, GetServerSideProps } from "next"
 import { MongoClient } from "mongodb"
+
+const getServerSideProps: GetServerSideProps = async () => {
+
+  const isAuthenticated = false;
+
+  if (isAuthenticated) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      }
+    }
+  }
+
+  return { props: {} }
+}
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   if (request.method === "POST") {
@@ -23,10 +39,8 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
         if (res.length == 0) {
           console.log("Account not found. Sign up!")
-          // fancier alert needed on client side -- no account error
         } else if (res[0].userData.password != data.password) {
           console.log("Password is wrong.")
-          // fancier alert needed on client side -- password error
         }
         else {
           console.log("Successful login.")
