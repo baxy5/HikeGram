@@ -7,10 +7,10 @@
 }
 
 .content {
-  margin-top: 10em;
   display: flex;
   justify-content: space-around;
   width: 100%;
+  margin-top: 10em;
 
   h1 {
     font-family: "Bebas Neue", cursive;
@@ -54,8 +54,7 @@
 }
 
 .image {
-  border-radius: 65% 35% 21% 79% / 67% 44% 56% 33%;
-  animation: blob 3s alternate-reverse infinite;
+  margin-top: 10em !important;
 }
 
 .more_info {
@@ -80,11 +79,6 @@
     font-size: 1rem;
     line-height: 1.5em;
   }
-}
-
-.under_cons {
-  text-align: center;
-  font-size: 1.4em;
 }
 
 @media only screen and (min-width: 1400px) {
@@ -129,20 +123,5 @@
     .image {
       transform: translateX(15%);
     }
-  }
-}
-
-@media only screen and (max-width: 375px) {
-  .under_cons {
-    font-size: 1em;
-  }
-}
-
-@keyframes blob {
-  from {
-    border-radius: 65% 35% 21% 79% / 67% 44% 56% 33%;
-  }
-  to {
-    border-radius: 76% 24% 60% 40% / 34% 56% 44% 66%;
   }
 }

@@ -40,11 +40,6 @@ const Navbar = ({ isOpen, setMenu }: Props) => {
             </Link>
           </li>
           <li>
-            <Link href="/" replace>
-              <a href="#">Community</a>
-            </Link>
-          </li>
-          <li>
             <Link href="/login" replace>
               <a>Login</a>
             </Link>
