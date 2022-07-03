@@ -7,7 +7,6 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Contents from "../components/Contents";
 import LoadingScreen from "../components/LoadingScreen";
-import Content from "../components/Content";
 
 import styles from "../styles/Home.module.scss";
 

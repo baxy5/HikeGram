@@ -1,21 +1,6 @@
-import { NextApiRequest, NextApiResponse, GetServerSideProps } from "next"
+import { NextApiRequest, NextApiResponse } from "next"
 import { MongoClient } from "mongodb"
 
-const getServerSideProps: GetServerSideProps = async () => {
-
-  const isAuthenticated = false;
-
-  if (isAuthenticated) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      }
-    }
-  }
-
-  return { props: {} }
-}
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   if (request.method === "POST") {
