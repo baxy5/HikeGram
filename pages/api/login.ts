@@ -24,13 +24,14 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
         if (res.length == 0) {
           console.log("Account not found. Sign up!")
+          response.status(404).json({ "message": "Account not found." })
         } else if (res[0].userData.password != data.password) {
           console.log("Password is wrong.")
+          response.status(401).json({ "message": "Wrong password." })
         }
         else {
           console.log("Successful login.")
-          response.status(200)
-          // redirect goes here
+          response.status(200).json({ "message": "OK" })
         }
       })
     })

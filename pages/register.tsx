@@ -14,15 +14,6 @@ const Register = () => {
 
   let [isLoading, setLoading] = useState(false);
 
-  function loadingAnimation() {
-    setTimeout(() => {
-      setLoading(true);
-    }, 200);
-    setTimeout(() => {
-      router.push("/");
-    }, 2000);
-  }
-
   const sendData = async (e) => {
     e.preventDefault();
 
@@ -39,8 +30,14 @@ const Register = () => {
       body: JSON.stringify(userData),
     });
 
-    // !!
-    const data = await response.json();
+    if (response.ok) {
+      setTimeout(() => {
+        setLoading(true);
+      }, 100);
+      setTimeout(() => {
+        router.push("/login");
+      }, 2000);
+    }
   };
 
   return (
@@ -68,7 +65,7 @@ const Register = () => {
               <label htmlFor="password">Password</label>
               <input type="password" name="password" id="password" required />
               <div>
-                <button type="submit" onClick={loadingAnimation}>
+                <button type="submit">
                   Sign up
                 </button>
               </div>

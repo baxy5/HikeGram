@@ -14,15 +14,6 @@ export const Login = () => {
 
   let [isLoading, setLoading] = useState(false);
 
-  function loadingAnimation() {
-    setTimeout(() => {
-      setLoading(true);
-    }, 200);
-    setTimeout(() => {
-      router.push("/");
-    }, 2000);
-  }
-
   const userVerification = async (e) => {
     e.preventDefault();
 
@@ -38,6 +29,17 @@ export const Login = () => {
       },
       body: JSON.stringify(userData),
     });
+
+    if (response.ok) {
+      setTimeout(() => {
+        setLoading(true);
+      }, 100);
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
+    } else {
+      router.reload()
+    }
   };
 
   useEffect(() => {
@@ -68,7 +70,7 @@ export const Login = () => {
               <label htmlFor="password">Password</label>
               <input type="password" name="password" id="password" required />
               <div>
-                <button type="submit" onClick={loadingAnimation}>
+                <button type="submit" >
                   Log in
                 </button>
               </div>

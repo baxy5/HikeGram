@@ -45,7 +45,7 @@ const Info = ({ title, desc, src, size }) => {
               <h1 className={styles.title}>{title}</h1>
               <p className={styles.desc}>{desc}</p>
             </div>
-            <Image src={src} width={size.width} height={size.height} />
+            <Image layout="responsive" src={src} width={size.width} height={size.height} />
           </div>
         </div>
       </motion.div>
