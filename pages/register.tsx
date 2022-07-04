@@ -1,8 +1,11 @@
-import Link from "next/link";
-import logo from "../styles/Navbar.module.scss";
-import styles from "../styles/Register.module.scss";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import ClipLoader from "react-spinners/ClipLoader"
+
+import logo from "../styles/Navbar.module.scss";
+import styles from "../styles/Register.module.scss";
+
 
 const Register = () => {
   interface User {
@@ -35,7 +38,7 @@ const Register = () => {
         setLoading(true);
       }, 100);
       setTimeout(() => {
-        router.push("/login");
+        router.push("/");
       }, 2000);
     }
   };
@@ -52,9 +55,7 @@ const Register = () => {
 
       <div className={styles.container}>
         {isLoading ? (
-          <div className={styles.loading}>
-            <p>Signing up...</p>
-          </div>
+          <ClipLoader />
         ) : (
           <div className={styles.box}>
             <h1>Sign up</h1>

@@ -35,7 +35,7 @@ const Navbar = ({ isOpen, setMenu }: Props) => {
             </Link>
           </li>
           <li>
-            <Link href="/" replace>
+            <Link href="/feed" replace>
               <a>Feed</a>
             </Link>
           </li>

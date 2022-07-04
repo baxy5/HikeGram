@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import ClipLoader from "react-spinners/ClipLoader";
+
 import styles from "../styles/Register.module.scss";
 import logo from "../styles/Navbar.module.scss";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
 export const Login = () => {
   interface User {
@@ -58,9 +60,7 @@ export const Login = () => {
 
       <div className={styles.container}>
         {isLoading ? (
-          <div className={styles.loading}>
-            <p>Signing in...</p>
-          </div>
+          < ClipLoader />
         ) : (
           <div className={styles.box}>
             <h1>Log in</h1>
