@@ -2,9 +2,11 @@ import React from 'react'
 
 import styles from "../../styles/Feed.module.scss"
 
-const FeedItem = () => {
+const FeedItem = ({ post }) => {
     return (
-        <div>FeedItem</div>
+        <div className={styles.FeedItem_container}>
+            <p>{post}</p>
+        </div>
     )
 }
 
