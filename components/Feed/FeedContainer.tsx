@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import router from "next/router"
 
 import FeedItem from './FeedItem'
 
@@ -6,6 +7,7 @@ import styles from "../../styles/Feed.module.scss"
 
 const FeedContainer = () => {
     const [post, setPost] = useState("")
+    const [posts, setPosts] = useState("")
 
     const storePost = async (e) => {
         e.preventDefault()
@@ -18,10 +20,30 @@ const FeedContainer = () => {
             body: JSON.stringify(post),
         })
 
-        console.log(response)
+        if (response.ok) {
+            router.reload()
+        }
     }
 
-    const getPost = () => { }
+    const getPost = async () => {
+
+        const response = await fetch("/api/get", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+
+        const posts = await response.json()
+
+        if (response.ok) {
+            setPosts(posts)
+        }
+    }
+
+    useEffect(() => {
+        getPost()
+    }, [])
 
     return (
         <div className={styles.FeedContainer}>
@@ -32,7 +54,7 @@ const FeedContainer = () => {
                         <button type='submit'>Post</button>
                     </form>
                 </div>
-                <FeedItem post="asd" />
+                <FeedItem posts={posts} />
             </div>
         </div >
     )
