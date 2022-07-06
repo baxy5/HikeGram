@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Navbar from '../components/Navbar'
 import Feed from '../components/Feed'
 
 import styles from "../styles/Home.module.scss"
 
-const feed = ({ isMenuOpen, setIsMenuOpen }) => {
+const feed = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>

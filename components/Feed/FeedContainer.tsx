@@ -7,7 +7,7 @@ import styles from "../../styles/Feed.module.scss"
 
 const FeedContainer = () => {
     const [post, setPost] = useState("")
-    const [posts, setPosts] = useState("")
+    const [posts, setPosts] = useState([])
 
     const storePost = async (e) => {
         e.preventDefault()
@@ -34,10 +34,13 @@ const FeedContainer = () => {
             },
         })
 
-        const posts = await response.json()
-
         if (response.ok) {
-            setPosts(posts)
+            const posts = await response.json()
+            /* setPosts(posts) */
+            setTimeout(() => {
+                setPosts(posts)
+                console.log(posts)
+            }, 2000)
         }
     }
 
