@@ -2,20 +2,11 @@ import React, { Key } from 'react'
 
 import styles from "../../styles/Feed.module.scss"
 
-const FeedItem = ({ posts }) => {
-    type Post = {
-        _id: Key,
-        data: string,
-        date: Date
-    }
+const FeedItem = () => {
 
     return (
         <div>
-            {posts.map((post: Post) => {
-                <div className={styles.FeedItem_container} key={post._id}>
-                    <p>{post.data}</p>
-                </div>
-            })}
+            <h1>faszom</h1>
         </div>
     )
 }

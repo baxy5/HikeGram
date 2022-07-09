@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             db.collection("post").find({}).toArray((err, result) => {
                 if (err) throw err;
 
-                res.status(200).json(result)
+                res.status(200).send(result)
                 console.log("Data retrieve successful: " + result.length)
             })
         })
