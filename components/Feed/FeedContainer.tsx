@@ -7,6 +7,7 @@ import styles from "../../styles/Feed.module.scss"
 
 const FeedContainer = () => {
     const [post, setPost] = useState("")
+    const [posts, setPosts] = useState([])
 
     const storePost = async (e) => {
         e.preventDefault()
@@ -24,6 +25,19 @@ const FeedContainer = () => {
         }
     }
 
+    const getPost = () => {
+
+        fetch("/api/get")
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res)
+                setPosts(res)
+            })
+    }
+
+    useEffect(() => {
+        getPost()
+    }, [])
 
     return (
         <div className={styles.FeedContainer}>
@@ -34,7 +48,12 @@ const FeedContainer = () => {
                         <button type='submit'>Post</button>
                     </form>
                 </div>
-                <FeedItem />
+                {/* <FeedItem /> */}
+                <ul>
+                    {posts.map((item, i) => {
+                        return <li key={i}>{item.data}</li>
+                    })}
+                </ul>
             </div>
         </div >
     )
