@@ -10,14 +10,42 @@
   padding: 2em;
   display: flex;
   justify-content: space-around;
-  background-color: white;
+  text-align: center;
+
+  input {
+    width: 100%;
+    outline: none;
+    border: 2px solid #010101;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  button {
+    background-color: #010101;
+    border-radius: 5px;
+    width: 100%;
+    color: white;
+    margin-top: 0.33em;
+    padding: 5px;
+    font-size: 1.3em;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: #010101;
+    }
+  }
 }
 
 .FeedItem_container {
-  display: flex;
+  display: block;
   justify-content: space-around;
   align-items: center;
   margin: 2em;
   padding: 1em;
   border: 1px solid #010101;
+  background-color: #0101015b;
+  color: white;
 }

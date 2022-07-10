@@ -26,8 +26,8 @@ const Hero = () => {
             Hike<span>gram</span>
           </h1>
           <p>
-            Hikegram is a photo sharing website for wild hikers all around the
-            world. Share your photos. Find friends. Hike together.
+            Hikegram is a experience sharing website for wild hikers all around the
+            world. Share your stories. Find friends. Hike together.
           </p>
         </motion.div>
       </div>

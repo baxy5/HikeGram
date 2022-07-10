@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import router from "next/router"
+import { ClipLoader } from 'react-spinners'
 
 import FeedItem from './FeedItem'
 
@@ -8,6 +9,7 @@ import styles from "../../styles/Feed.module.scss"
 const FeedContainer = () => {
     const [post, setPost] = useState("")
     const [posts, setPosts] = useState([])
+    const [isStateLoaded, setIsStateLoaded] = useState<boolean>(false)
 
     const storePost = async (e) => {
         e.preventDefault()
@@ -26,7 +28,6 @@ const FeedContainer = () => {
     }
 
     const getPost = () => {
-
         fetch("/api/get")
             .then((res) => res.json())
             .then((res) => {
@@ -37,6 +38,9 @@ const FeedContainer = () => {
 
     useEffect(() => {
         getPost()
+        setTimeout(() => {
+            setIsStateLoaded(true)
+        }, 1500)
     }, [])
 
     return (
@@ -45,15 +49,15 @@ const FeedContainer = () => {
                 <div>
                     <form onSubmit={storePost}>
                         <input type="text" name="post" onChange={(e) => setPost(e.target.value)} />
+                        <br />
                         <button type='submit'>Post</button>
                     </form>
                 </div>
-                {/* <FeedItem /> */}
-                <ul>
-                    {posts.map((item, i) => {
-                        return <li key={i}>{item.data}</li>
-                    })}
-                </ul>
+
+                {!isStateLoaded ? <ClipLoader /> : posts.map((item) => {
+                    return <FeedItem key={item._id} post={item.data} date={item.createdAt} />
+                })}
+
             </div>
         </div >
     )
